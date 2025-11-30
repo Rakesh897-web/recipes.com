@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      /* Hero image with centered overlay card */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+
+      .hero img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .overlay-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 1.25rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        width: min(92%, 420px);
+      }
+
+      @media (max-width: 576px) {
+        .overlay-card { padding: 1rem; }
+      }
+    </style>
+  </head>
+  <body >
+    <div class="container py-5 px-3">
+      <div class="hero mx-auto" style="max-width:1000px;">
+        <img src="Cartoon style fire i.png" class="img-fluid" alt="hero image">
+
+        <div class="overlay-card">
+          <h3 class="mb-4 text-danger text-center">Sign in</h3>
+
+          <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            <div class="mb-3">
+              <label for="email" class="form-label text-danger">Email</label>
+              <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required autocomplete="email" autofocus />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label text-danger">Password</label>
+              <input type="password" id="password" name="password" class="form-control" required />
+            </div>
+
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-danger btn-lg">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
